@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: sans-serif;
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-background);
+}
+/*CSS Colour Variables*/
+:root {
+  --color-background: rgb(22, 22, 22);
+  --color-primary: rgb(53, 0, 65);
+  --color-black: rgb(0, 0, 0);
+}

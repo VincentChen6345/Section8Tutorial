@@ -1,4 +1,13 @@
 .form-section {
   background-color: white;
   border-radius: 1rem;
+  padding: 2rem;
+}
+.addUser_btn {
+  background-color: var(--color-primary);
+  color: white;
+  border-width: none;
+  border-style: none;
+  font-size: 2rem;
+  padding: 1rem 1.5rem;
 }

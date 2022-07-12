@@ -2,13 +2,16 @@ import React from "react";
 import AddUser from "./components/AddUser";
 import UserList from "./components/UserList";
 import "./App.css";
+import userData from "./data/TaskData";
 
 function App() {
+  // const [userList, setUserList] = useState(userData);
+  const userList = userData;
   return (
     <div className="App">
       <div className="main-container">
         <AddUser />
-        <UserList />
+        <UserList userList={userList} />
       </div>
     </div>
   );

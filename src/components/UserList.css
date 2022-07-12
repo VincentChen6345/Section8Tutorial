@@ -1,0 +1,15 @@
+.UserList-section {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-top: 3rem;
+}
+
+.user-tile {
+  display: flex;
+  border: solid 1px rgb(105, 105, 105);
+  flex: 1;
+  padding: 1rem 1rem;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}

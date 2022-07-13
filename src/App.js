@@ -1,16 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import AddUser from "./components/AddUser";
 import UserList from "./components/UserList";
 import "./App.css";
 import userData from "./data/TaskData";
 
 function App() {
-  // const [userList, setUserList] = useState(userData);
-  const userList = userData;
+  const [userList, setUserList] = useState(userData);
+  const addUserHandler = (user) => {
+    console.log(user);
+    setUserList((prevUserList) => {
+      const updatedUserList = [user, ...prevUserList];
+      return updatedUserList;
+    });
+  };
+
   return (
     <div className="App">
       <div className="main-container">
-        <AddUser />
+        <AddUser onAddUser={addUserHandler} />
         <UserList userList={userList} />
       </div>
     </div>
@@ -19,9 +26,16 @@ function App() {
 
 export default App;
 
-/*
-1. if you click 'add user' without any input, you get an overlay saying invalid input 
-2. If you enter a negative age, you get a different invalid input
-3. if you add a valid input, it resets the input fields 
+/*Bug!
+my useState user input is always 1 step behind when i log the data. e.g. if i type 'hello', it gets saved as 'hell'
+ */
 
+/*
+Successfully lifted data from AgeInput and NameInput.jsx into AddUser.jsx, then created new user object, then lifted the object into App.jsx where i update the userList and pass it into UserList.jsx to be rendered
 */
+
+/* Things to pick on
+1. create an error modal window with error message that changes depending on the conditions
+2. if either username input or age input is empty, display error modal
+3. if age input is negative, display error modal with different messsage
+4. Click escape or background to delete error modal (done by using dynamic classes e.g. display:hidden)*/

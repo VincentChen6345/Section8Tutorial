@@ -3,21 +3,34 @@ import AddUser from "./components/AddUser";
 import UserList from "./components/UserList";
 import "./App.css";
 import userData from "./data/TaskData";
+import ErrorModal from "./components/ErrorModal";
 
 function App() {
   const [userList, setUserList] = useState(userData);
+  const [isValid, setIsValid] = useState(true);
   const addUserHandler = (user) => {
     console.log(user);
+    if (user["Name"].trim().length === 0 || user["Age"].trim().length === 0) {
+      setIsValid(false);
+      return;
+    }
     setUserList((prevUserList) => {
       const updatedUserList = [user, ...prevUserList];
       return updatedUserList;
     });
   };
-
+  let modalClassName = "modal-container hidden";
+  isValid === false
+    ? (modalClassName = "modal-container")
+    : (modalClassName += " hidden");
   return (
     <div className="App">
       <div className="main-container">
-        <AddUser onAddUser={addUserHandler} />
+        <AddUser onAddUser={addUserHandler} isValid={isValid} />
+        <ErrorModal
+          modalClassName={modalClassName}
+          isValid={isValid}
+        ></ErrorModal>
         <UserList userList={userList} />
       </div>
     </div>

@@ -5,8 +5,8 @@ import AgeInput from "./functionality/AgeInput";
 import "./AddUser.css";
 
 const AddUser = (props) => {
-  let newUserName;
-  let newAge;
+  let newUserName = "";
+  let newAge = "";
   const submitHandler = (e) => {
     e.preventDefault();
 
@@ -27,9 +27,9 @@ const AddUser = (props) => {
   return (
     <div className="form-section">
       <form onSubmit={submitHandler}>
-        <NameInput onAddName={addNameHandler} />
-        <AgeInput onAddAge={addAgeHandler} />
-        <button className="addUser_btn" type="submit" onClick={submitHandler}>
+        <NameInput onAddName={addNameHandler} isValid={props.isValid} />
+        <AgeInput onAddAge={addAgeHandler} isValid={props.isValid} />
+        <button className="btn" type="submit" onClick={submitHandler}>
           Add User
         </button>
       </form>

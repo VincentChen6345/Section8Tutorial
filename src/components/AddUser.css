@@ -3,7 +3,7 @@
   border-radius: 1rem;
   padding: 2rem;
 }
-.addUser_btn {
+.btn {
   background-color: var(--color-primary);
   color: white;
   border-width: none;

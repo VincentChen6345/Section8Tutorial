@@ -18,6 +18,7 @@ const NameInput = (props) => {
         type="text"
         onChange={nameChangeHandler}
         value={enteredName}
+        disabled={props.isValid ? null : "disabled"}
       ></input>
     </div>
   );

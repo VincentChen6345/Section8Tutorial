@@ -6,10 +6,16 @@ const AgeInput = (props) => {
     setAge(e.target.value);
     props.onAddAge(age);
   };
+
   return (
     <div className="AgeInput__container">
       <label className="label">Age(Years)</label>
-      <input className="input" type="text" onChange={ageChangeHandler}></input>
+      <input
+        className="input"
+        type="text"
+        onChange={ageChangeHandler}
+        disabled={props.isValid ? null : "disabled"}
+      ></input>
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import AddUser from "./components/AddUser";
 import UserList from "./components/UserList";
 import "./App.css";
@@ -6,6 +7,12 @@ import userData from "./data/TaskData";
 import ErrorModal from "./components/ErrorModal";
 
 function App() {
+  useEffect(() => {
+    //implement click to remove overlay logic here
+    const overlay = document.getElementById("overlay");
+
+    overlay.addEventListener("click", removeModalHandler);
+  });
   const [userList, setUserList] = useState(userData);
   const [isValid, setIsValid] = useState(true);
   const addUserHandler = (user) => {
@@ -42,6 +49,7 @@ function App() {
     }
   };
   document.addEventListener("keydown", keyDownHandler);
+
   return (
     <div className="App">
       <div className="main-container">
@@ -52,7 +60,7 @@ function App() {
           removeModal={removeModalHandler}
         ></ErrorModal>
         <UserList userList={userList} />
-        <div className={overlayClassName}></div>
+        <div className={overlayClassName} id="overlay"></div>
       </div>
     </div>
   );

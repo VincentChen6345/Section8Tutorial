@@ -12,6 +12,7 @@ html {
 body {
   margin: 0;
   background-color: var(--color-background);
+  position: relative;
 }
 /*CSS Colour Variables*/
 :root {

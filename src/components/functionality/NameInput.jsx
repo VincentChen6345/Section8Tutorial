@@ -25,9 +25,3 @@ const NameInput = (props) => {
 };
 
 export default NameInput;
-
-/*Notes to pickup on 
-1. when username input is submitted, data is passed up the state into AddUser.jsx,
-2. together with the age input, it creates a new object which is added to userList
-3. userList gets re-rendered
-*/

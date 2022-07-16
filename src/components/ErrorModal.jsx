@@ -8,9 +8,16 @@ const ErrorModal = (props) => {
         Please enter a valid name and age (non-empty values)
       </p>
       <div className="button-container">
-        <button className="btn okay">Okay</button>
+        <button onClick={props.removeModal} className="btn okay">
+          Okay
+        </button>
       </div>
     </div>
   );
 };
 export default ErrorModal;
+/*
+Handover notes 14/7/22 Thurs
+1. when okay button is pressed/when esc key is pressed/when background is clicked --> unlock input fields, remove modal window
+
+*/

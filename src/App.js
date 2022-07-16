@@ -19,10 +19,29 @@ function App() {
       return updatedUserList;
     });
   };
+  /*clicking the okay button to remove modal  */
+  const removeModalHandler = () => {
+    setIsValid(true);
+    return;
+  };
+
   let modalClassName = "modal-container hidden";
-  isValid === false
-    ? (modalClassName = "modal-container")
-    : (modalClassName += " hidden");
+  let overlayClassName = "overlay hidden";
+  if (isValid === false) {
+    modalClassName = "modal-container";
+    overlayClassName = "overlay ";
+  } else {
+    modalClassName += " hidden";
+    overlayClassName = "overlay hidden";
+  }
+  /* Escape key handler*/
+
+  const keyDownHandler = (e) => {
+    if (e.key === "Escape") {
+      removeModalHandler();
+    }
+  };
+  document.addEventListener("keydown", keyDownHandler);
   return (
     <div className="App">
       <div className="main-container">
@@ -30,8 +49,10 @@ function App() {
         <ErrorModal
           modalClassName={modalClassName}
           isValid={isValid}
+          removeModal={removeModalHandler}
         ></ErrorModal>
         <UserList userList={userList} />
+        <div className={overlayClassName}></div>
       </div>
     </div>
   );

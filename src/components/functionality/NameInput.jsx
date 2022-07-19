@@ -5,6 +5,8 @@ const NameInput = (props) => {
   const [enteredName, setEnteredName] = useState("");
   const nameChangeHandler = (e) => {
     setEnteredName(e.target.value);
+    console.log(enteredName);
+
     // console.log(enteredName);
     /*why is there a 1 letter delay */
     props.onAddName(enteredName);

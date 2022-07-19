@@ -5,8 +5,8 @@ import AgeInput from "./functionality/AgeInput";
 import "./AddUser.css";
 
 const AddUser = (props) => {
-  let newUserName;
-  let newAge;
+  let newUserName = "";
+  let newAge = "";
   const submitHandler = (e) => {
     e.preventDefault();
 
